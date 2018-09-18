@@ -104,23 +104,27 @@ describe("About Applying What We Have Learnt", function() {
   
   it("should find the largest prime factor of a composite number", function () {
   
+    expect(largestPrime(26)).toBe(13);
   });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
     
+    expect(largestPalindrome(700, 915)).toBe(640046);
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
       
-    
+    expect(smallestDivisible(1, 20)).toBe(232792560);
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
     
+    expect(diffSquaresSums(10, 11)).toBe(220);
   });
 
   it("should find the 10001st prime", function () {
 
+    expect(prime(10001)).toBe(104743);
   });
   
 });
