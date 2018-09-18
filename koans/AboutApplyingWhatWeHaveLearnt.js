@@ -103,8 +103,44 @@ describe("About Applying What We Have Learnt", function() {
   /* UNCOMMENT FOR EXTRA CREDIT */
   
   it("should find the largest prime factor of a composite number", function () {
-  
-    expect(largestPrime(26)).toBe(13);
+    // input: composite number
+    // output: largest prime factor
+    
+    function findLrgstPrimeFactor(composite) {
+      // declare n variable equal to (composite - 1)
+      // initialize lrgstPrimeFactor variable
+      // set lrgstPrimeFound variable equal to false
+      // use while loop to iterate until largest prime is found
+        // if composite divided by n is an integer and n is a prime number, then
+          // set lrgstPrimeFound equal to true
+          // set lrgstPrimeFactor equal to n
+        // else decrease n by 1
+      // return lrgstPrimeFactor
+
+      let n = composite - 1;
+      let lrgstPrimeFactor;
+      let lrgstPrimeFound = false;
+      while (n > 1 && lrgstPrimeFound === false) {
+        const quotient = composite / n;
+        if (Number.isInteger(quotient) && isPrime(n)) {
+          lrgstPrimeFactor = n;
+          lrgstPrimeFound = true;
+        } else {
+          n--;
+        }
+      }
+      return lrgstPrimeFactor;
+    }
+
+    function isPrime(num) {
+      let n = num - 1;
+      while ((n > 1) && (num % n !== 0)) {
+        n--;  
+      }
+      return n === 1;
+    }
+
+    expect(findLrgstPrimeFactor(33)).toBe(11);
   });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
