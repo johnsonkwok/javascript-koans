@@ -231,8 +231,45 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the 10001st prime", function () {
+    // input: number indicating ordinal number (nth)
+    // output: the nth prime number
 
-    expect(prime(10001)).toBe(104743);
+    function findNthPrime(n) {
+      // create count variable initialized to 0
+      // initialize variable num set to 1
+      // create holder variable for prime number
+      // use while loop to iterate until count equals n
+        // if number is a prime, then
+          // increment count
+          // update prime number
+        // increment number
+      // return prime number
+
+      let count = 0;
+      let num = 1;
+      let prime;
+      while (n > 0 && count !== n) {
+        if (isPrime(num)) {
+          count += 1;
+          prime = num;
+        }
+        num += 1;
+      }
+      return prime;
+    }
+
+    function isPrime(num) {
+      if (num === 1) {
+        return false;
+      }
+      let n = Math.floor(Math.sqrt(num));
+      while ((n > 1) && (num % n !== 0)) {
+        n--;  
+      }
+      return n === 1;
+    }
+
+    expect(findNthPrime(10001)).toBe(104743);
   });
   
 });
