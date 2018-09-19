@@ -208,8 +208,26 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
-    
-    expect(diffSquaresSums(10, 11)).toBe(220);
+    // input: the range between two numbers
+    // output: difference between sum of their squares and the square of their sums
+
+    function calcDiffSquaresSums(x, y) {
+      // create an array of the range between the two numbers
+      // iterate through the range and calculate the sum of the squares 
+      // calculate the sum of the range and square it
+      // return the difference 
+
+      const numRange = (_.range(x, y + 1));
+      const sumOfSquares = sum(numRange.map(n => n ** 2));
+      const squareOfSums = (sum(numRange)) ** 2;
+      return squareOfSums - sumOfSquares;
+    }
+
+    function sum(arr) {
+      return arr.reduce((a, b) => a + b);
+    }
+
+    expect(calcDiffSquaresSums(1, 100)).toBe(25164150);
   });
 
   it("should find the 10001st prime", function () {
