@@ -144,8 +144,44 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
-    
-    expect(largestPalindrome(700, 915)).toBe(640046);
+    // input: 3 (number of digits for each of the two numbers to be multiplied)
+    // output: largest palindrome number from product of two 3-digit numbers
+
+    function findLrgstPalindrome(n) {
+      // create 2 max starting number variables (num1 and num2)
+      // create variable for minimum number
+      // initialize lrgstPalindrome variable
+      // use while loop to iterate until largest palindrome is found and num1 is above min
+        // if product of num1 and num2 is a palindrome (use helper function)
+          // set product equal to lrgstPalindrome
+        // else decrement num1 and num2 until palindrome found
+      // return lrgstPalindrome
+      
+      let num1 = parseInt('9'.padEnd(n, '9'));
+      let num2 = num1;
+      const min = parseInt('1'.padEnd(n, '0'));
+      let lrgstPalindrome = 0;
+      while (num1 > min) {
+        const product = num1 * num2;
+        if (product > lrgstPalindrome && isPalindrome(product)) {
+          lrgstPalindrome = product;
+        } else if (num2 === min) {
+          num1--;
+          num2 = num1;
+        } else {
+          num2--;
+        }
+      }
+      return lrgstPalindrome;
+    }
+
+    function isPalindrome(product) {
+      const productArr = product.toString().split('');
+      const reversed = productArr.slice().reverse().join('');
+      return (productArr.join('') === reversed);    
+    }
+
+    expect(findLrgstPalindrome(3)).toBe(906609);
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
