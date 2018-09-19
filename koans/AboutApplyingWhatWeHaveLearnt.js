@@ -185,8 +185,26 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
-      
-    expect(smallestDivisible(1, 20)).toBe(232792560);
+      // input: two numbers that define the start and end of a range of numbers
+      // output: smallest number divisible by each number in that range
+
+      function findSmallestDivisible(a, b) {
+        // create an array with the range of numbers
+        // initialize a variable for smallestDivisible equal to 20
+        // use while loop to iterate until solution found
+          // increment smallestDivisible by 20
+        // return smallestDivisible
+
+        const numRange = (_.range(a, b));
+        const increment = b * (b - 1);
+        let smallestDivisible = increment;
+        while (!_(numRange).all(x => smallestDivisible % x === 0)) {
+          smallestDivisible += increment;
+        }
+        return smallestDivisible;
+      }
+
+    expect(findSmallestDivisible(1, 20)).toBe(232792560);
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
